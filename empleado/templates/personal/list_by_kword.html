@@ -1,0 +1,15 @@
+<h1>LISTADO DE EMPLEADO POR BUSQUEDA EN EL HTML</h1>
+<h3>USANDO UNA PALABRA CLAVE DESDE UN CAMPO</h3>
+<br>
+{% csrf_token %} <!--El token es por seguridad para que nadie mas tenga acceso-->
+<form method="get">
+    <input type="text" id="kword" name="kword" placeholder="ingrese area aqui:">
+    <button type="submit">Buscar</button>
+</form>
+<br>
+<br>
+<ul>
+    {% for e in object_list %}
+    <li>{{ e.first_name }} - {{ e.last_name }}</li>
+    {%endfor%}
+</ul>

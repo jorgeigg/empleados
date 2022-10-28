@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+Pagina de registro de un nuevo Empleado
+{% endblock title %}
+{% block content %}
+{% include 'includes/header.html'%}
+{% load static %}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Registrar un nuevo Empleado</h1>
+        <form class="cell grid-x grid-margin-x" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="medium-6 cell">
+                <label>Nombres: 
+                    {{form.first_name}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Apellidos:
+                    {{form.last_name}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Trabajo:
+                    {{form.job}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Departamento:
+                    {{form.departamento}}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <label>Habilidades:
+                    {{form.habilidades}}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <label>foto:
+                    {{form.image}}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <button type="submit" class="button success">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+<!-- PARA MI ESTA ES MEJOR PARA HACER TABLAS -->
+<!-- <form method="post" class="grid-x grid-padding-x">
+    {% csrf_token %}
+    {form.as_ul }}
+    {{form.as_p }}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Agregar</button>
+</form> -->

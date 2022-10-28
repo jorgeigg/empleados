@@ -1,0 +1,9 @@
+<h1>Prueba de CreateView</h1>
+<!--<p>Titulo: </p>{{form.titulo}}
+<p>Subtitulo: </p>{{form.subtitulo}}
+<p>Cantidad: </p>{{form.cantidad}}-->
+
+<form method="post">{% csrf_token %}
+{{form.as_p}}
+<button type="submit">Guardar</button>
+</form>

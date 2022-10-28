@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Foundation</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+</head>
+<body>
+    <h1>Resumen Foundation</h1>
+    <!--En la class el "grid" es para dividir la pantalla de manera Horizontal o Vertical-->
+    <!--En la class el "small" es para phone y el "large" es para Computadoras-->
+    <div class="grid-x" style="border: 1px solid green;">
+        <h2 class="cell small-12 large-4" style="border: 1px solid red;">elemento 1</h2>
+        <h2 class="cell large-4" style="border: 1px solid red;">elemento 2</h2>
+        <h2 class="cell large-4" style="border: 1px solid red;">elemento 3</h2>
+        <h2 class="cell" style="border: 1px solid blue;">elemento 4</h2>
+        <dir class="cell large-4 grid-x" style="border: 1px solid yellow;">
+            <h4 class="cell large-6">otro elemento 1</h4>
+            <h4 class="cell large-6">otro elemento 2</h4>
+            <h4>otro elemento 3</h4>
+        </dir>
+    </div>
+</body>
+</html>

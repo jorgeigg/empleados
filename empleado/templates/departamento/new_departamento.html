@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+Pagina de registro de un nuevo Empleado
+{% endblock title %}
+{% block content %}
+{% include 'includes/header.html'%}
+{% load static %}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell" style="text-align:center">Registrar un nuevo departamento</h1>
+        {% csrf_token %}
+        <form class="cell callout grid-x grid-margin-x" method="post">
+        {% csrf_token %}
+            <div class="medium-12 cell">
+                <h3 class="cell">Datos del empleado:</h3>
+                <label>Nombres:
+                    {{form.nombres}}
+                </label>
+                <label>Apellidos:
+                    {{form.apellidos}}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <h3 class="cell">Datos del departamento:</h3>
+                <label>Nombre del Departamento:
+                    {{form.departamento}}
+                </label>
+                <label>Nombre corto del Departamento:
+                    {{form.shortname}}
+                </label>
+            </div>
+            <div class="medium-12 cell">
+                <button type="submit" class="button success">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

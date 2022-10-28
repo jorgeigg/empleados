@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+{{object.full_name}}
+{% endblock title %}
+{% block content %}
+{% include 'includes/header.html'%}
+{% load static %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="medium-6 cell card" style="width: 300px; margin-top: 10px;">
+            <div class="card-divider align-center">
+            <!-- Se coloca el modelo "Empleado" pero en minuscula -->
+            <!-- Se busca el dato y no el valor siempre y cuando se alla definido tipo "choices" -->
+            <!-- usando el metodo get_xxx_display -->
+            <p style="color:blue; font-size:30px;">{{empleado.get_job_display}}</p>
+            </div>       
+            {% if empleado.image %}
+                <img src="{{empleado.image.url}}"><!-- Carga la imagen como una URL -->
+            {% else %}
+                <img src="{% static 'images/NoExiste.jpg' %}">
+            {% endif %}                    
+            <div class="card-section" style="text-align:center;">
+                <p style="color:black; font-size:30px;">{{empleado.full_name}}</p>
+
+                <label style="color:black; font-size:20px;"><b>Departamento:</b>
+                    <!--Para ver el detalle del departamento se usa ".name o .shor_name" del modelo -->
+                    <!--<input type="text" value={{empleado.departamento.shor_name}}>-->
+                    <p>{{empleado.departamento.shor_name}}</p>
+                </label>
+                <label style="color:black; font-size:20px;"><b>Habilidades:</b>
+                    <ul>      
+                        {% for h in empleado.habilidades.all %}
+                            <li>{{h.habilidad}}</li>  
+                        {% endfor %}      
+                    </ul>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

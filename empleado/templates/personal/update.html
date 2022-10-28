@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+Pagina de empleados
+{% endblock title %}
+{% block content %}
+{% include 'includes/header.html'%}
+{% load static %}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">MODIFICAR DATOS DEL EMPLEADO</h1>
+        <div class="cell" align="CENTER">
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <button type="submit" class="submit success button">Modificar</button>
+            </form>
+        </div>    
+    </div>        
+</div>
+{% endblock content %}
+
+
